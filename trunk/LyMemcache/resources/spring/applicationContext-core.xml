@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	   default-autowire="byName">
+	   
+	<!-- Message source for this context, loaded from localized "messages_xx" files -->
+	<!-- i18n Resource文件bundles -->
+    <bean scope="singleton" id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>i18n/messages</value>
+                <value>i18n/errors</value>
+            </list>
+        </property>
+    </bean>
+	
+	<bean scope="singleton" id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:conf/jdbc.properties</value>
+				<value>classpath*:conf/hibernate.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 数据源定义,使用Apache DBCP 连接池 -->
+	<bean scope="singleton" id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="initialSize" value="${jdbc.initialSize}"/>
+		<property name="maxActive" value="${jdbc.maxActive}"/>
+		<property name="maxIdle" value="${jdbc.maxIdle}"/>
+		<property name="minIdle" value="${jdbc.minIdle}"/>
+		<property name="maxWait" value="${jdbc.maxWait}"/>
+	</bean>
+	
+
+
+	<!--Hibernate SessionFatory-->
+	<bean scope="singleton" id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	   <property name="dataSource" ref="dataSource"/>
+	   
+	    <property name="packagesToScan">
+			<list>
+				<value>com.tinet.smsc.wm.model</value>				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop> 
+				
+					
+			</props>
+		</property>
+	</bean>
+	
+    <bean scope="singleton" id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="dataSource" ref="dataSource"/>
+  	</bean>
+  	
+  	<!-- 以AspectJ方式 定义 AOP -->
+	<aop:config>
+		<aop:advisor pointcut="execution(* com.tinet.*.*(..))" advice-ref="txAdvice"/>
+	</aop:config>
+
+	<!-- 基本事务定义,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.
+			 默认的设置请参考Spring文档事务一章. -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="find*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="search*" read-only="true" propagation="SUPPORTS"/>
+			 <tx:method name="send*"/>
+			<tx:method name="create*"/>
+			<tx:method name="save*"/>
+			<tx:method name="update*"/>
+			<tx:method name="delete*"/>
+			<tx:method name="remove*"/>
+			<tx:method name="batch*"/>
+			<tx:method name="execute*"/>
+			<tx:method name="upload*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+</beans>
