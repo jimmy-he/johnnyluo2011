@@ -25,7 +25,9 @@ public interface CacheClient {
 	 * @param key
 	 * @param value
 	 * @param expiry
-	 * 过期时间(毫秒)
+	 *            过期时间(秒),最大设置时间为30天
+	 *            An expiration time, in seconds. Can be up to 30 days. After 30
+     *            days, is treated as a unix timestamp of an exact date.
 	 * @return
 	 */
 	boolean add(String key, Object value, int expiry);
@@ -35,7 +37,9 @@ public interface CacheClient {
 	 * @param key
 	 * @param value
 	 * @param expiry
-	 *            过期时间(毫秒)
+	 *            过期时间(秒),最大设置时间为30天
+	 *            An expiration time, in seconds. Can be up to 30 days. After 30
+     *            days, is treated as a unix timestamp of an exact date.
 	 * @param hashCode
 	 *            集群时用于负载权重
 	 * @return
@@ -108,7 +112,9 @@ public interface CacheClient {
 	 * @param key
 	 * @param value
 	 * @param expiry
-	 *            过期时间(毫秒)
+	 *            过期时间(秒),最大设置时间为30天
+	 *            An expiration time, in seconds. Can be up to 30 days. After 30
+     *            days, is treated as a unix timestamp of an exact date.
 	 * @return
 	 */
 	boolean replace(String key, Object value, int expiry);
@@ -147,7 +153,9 @@ public interface CacheClient {
 	 * @param key
 	 * @param value
 	 * @param expiry
-	 *            过期时间(毫秒)
+	 *            过期时间(秒),最大设置时间为30天
+	 *            An expiration time, in seconds. Can be up to 30 days. After 30
+     *            days, is treated as a unix timestamp of an exact date.
 	 * @return
 	 */
 	boolean set(String key, Object value, int expiry);
@@ -157,7 +165,9 @@ public interface CacheClient {
 	 * @param key
 	 * @param value
 	 * @param expiry
-	 *            过期时间(毫秒)
+	 *            过期时间(秒),最大设置时间为30天
+	 *            An expiration time, in seconds. Can be up to 30 days. After 30
+     *            days, is treated as a unix timestamp of an exact date.
 	 * @param hashCode
 	 *            集群时用于负载权重
 	 * @return
