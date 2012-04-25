@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tinet.ccic.common.cache.memcache.service.CacheClient;
 import com.tinet.ccic.common.cache.memcache.service.CacheClientXmemcachedImpl;
 import com.tinet.ccic.wm.commons.util.ContextUtil;
 
