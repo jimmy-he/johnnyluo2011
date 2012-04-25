@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.codebehind.pathPrefix" value="/" />
+	<constant name="struts.custom.i18n.resources" value="i18n/messages" />
+	<constant name= "struts.multipart.maxSize" value="15242880" />
+	<constant name="struts.action.extension" value="action,,"></constant>
+	
+	<package name="default-with-exceptions" extends="struts-default" abstract="true">
+	    <global-results>
+			<result name="exception-error-page">/errors/error.jsp</result>
+		</global-results>
+	    <global-exception-mappings>  
+	    	<exception-mapping result="exception-error-page" exception="java.lang.Exception"></exception-mapping>  
+	    </global-exception-mappings>
+    </package>
+    
+    
+   	<package name="default" extends="default-with-exceptions">
+		<interceptors>
+			<interceptor-stack name="ssocStack">
+				<interceptor-ref name="exception"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="ssocStack" />
+
+	</package>
+	
+</struts>
