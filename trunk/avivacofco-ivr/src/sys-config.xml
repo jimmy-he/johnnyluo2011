@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<db-info>
+		<driver-name>com.ibm.db2.jcc.DB2Driver</driver-name>
+		<url>jdbc:db2://10.145.6.80:50000/odsdev</url>
+		<user-name>db2call</user-name>
+		<password>db2call</password>
+	</db-info>
+</config>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GBK"?>
+<TradeData>
+  <BaseInfo>
+    <TradeCode>${TradeCode}</TradeCode>
+    <TradeTime>${TradeTime}</TradeTime>
+    <TotalRowNum />
+    <ResultCode>0</ResultCode>
+    <ResultMsg />
+    <TradeType>WEBSITE</TradeType>
+    <PageRowNum>5</PageRowNum>
+    <OrderFlag>0</OrderFlag>
+    <SubTradeCode>1</SubTradeCode>
+    <TradeSeq>0001101420070311000001</TradeSeq>
+    <PageFlag>1</PageFlag>
+    <RowNumStart>1</RowNumStart>
+    <OrderField />
+    <Operator>WEB</Operator>
+    <TradeDate>${TradeDate}</TradeDate>
+  </BaseInfo>
+  <InputData>
+    <IDENTY_NO>${IDENTY_NO}</IDENTY_NO>
+    <Company>${Company}</Company>
+    <PolicyNo>${PolicyNo}</PolicyNo>
+    <Filter>BaseInfo,RiskInfo,PersonInfo,AgentInfo_PERSON_AGENT,AgentInfo_BROKER,AgentInfo_BANK_BOS,AgentInfo_DM_AGENTHIS,ZMAN,CLMREGP,CLMDEATH,NoticeInfo</Filter>
+  </InputData>
+  <OutputData />
+</TradeData>

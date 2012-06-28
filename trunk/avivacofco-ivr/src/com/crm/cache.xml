@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	
+	<!-- 如果不使用缓存技术，将expireTime设置为0,单位是分钟 -->  
+    <timeConfig expireTime="20" />  
+       
+    <!-- 缓存最大数量,建议在50-100之间,当达到最大数量的时候清空缓存 -->  
+    <cacheConfig maxCacheSize="80" />  
+	
+</configs>
