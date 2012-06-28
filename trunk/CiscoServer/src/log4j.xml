@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+  <!-- ===================================================================== -->
+  <!--                                                                       -->
+  <!--  Log4j Configuration                                                  -->
+  <!--                                                                       -->
+  <!-- ===================================================================== -->
+
+  <!--
+    | For more configuration infromation and examples see the Jakarta Log4j | owebsite: http://jakarta.apache.org/log4j
+  -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+  <!-- ================================= -->
+  <!-- Preserve messages in a local file -->
+  <!-- ================================= -->
+
+  <!-- A time/date based rolling appender -->
+  <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+   <!-- <param name="File" value="logs/soaware.system.out.log" />-->
+     <param name="File" value="D:\\JTAPILogs\\CallMessagesOut.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p [%t] - %m at %l%n" />
+    </layout>
+  </appender>
+
+  <!-- ============================== -->
+  <!-- Append messages to the console -->
+  <!-- ============================== -->
+  <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p [%t] - %m %n" />
+    </layout>
+  </appender>
+
+  <!-- ================ -->
+  <!-- Limit categories -->
+  <!-- ================ -->
+  <category name="org.hibernate">
+    <priority value="INFO" />
+  </category>
+
+  <category name="org.springframework">
+    <priority value="INFO" />
+  </category>
+
+  <!-- Limit the org.apache category to INFO as its DEBUG is verbose -->
+  <category name="org.apache">
+    <priority value="INFO" />
+  </category>
+
+  <category name="com.mchange">
+    <priority value="INFO" />
+  </category>
+  
+  <!-- Limit the org.jboss.serial (jboss-serialization) to INFO as its DEBUG is verbose -->
+  <category name="org.jboss">
+    <priority value="INFO" />
+  </category>
+
+  <!-- Limit the org.jgroups category to WARN as its INFO is verbose -->
+  <category name="org.jgroups">
+    <priority value="INFO" />
+  </category>
+
+  <!-- Limit the jacorb category to WARN as its INFO is verbose -->
+  <category name="jacorb">
+    <priority value="WARN" />
+  </category>
+
+  <category name="com.ygsoft.soaware">
+    <priority value="INFO" />
+  </category>
+
+  <category name="org.quartz">
+    <priority value="INFO" />
+  </category>
+  
+  <!-- Limit the JSR77 categories -->
+  <category name="org.jboss.management">
+    <priority value="INFO" />
+  </category>
+
+  <!--
+  Enable JBossWS message tracing <category name="jbossws.SOAPMessage"> <priority value="TRACE"/> </category>
+ -->
+
+  <!--
+    Decrease the priority threshold for the org.jboss.varia category <category name="org.jboss.varia"> <priority
+    value="DEBUG"/> </category>
+  -->
+
+  <!--
+    Show the evolution of the DataSource pool in the logs [inUse/Available/Max] <category
+    name="org.jboss.resource.connectionmanager.JBossManagedConnectionPool"> <priority value="TRACE"/> </category>
+  -->
+
+  <!--
+    | An example of enabling the custom TRACE level priority that is used | by the JBoss internals to diagnose low level
+    details. This example | turns on TRACE level msgs for the org.jboss.ejb.plugins package and its | subpackages. This
+    will produce A LOT of logging output. | | Note: since jboss AS 4.2.x, the trace level is supported natively by |
+    log4j, so although the custom org.jboss.logging.XLevel priority will | still work, there is no need to use it. The
+    two examples that follow | will both enable trace logging. <category name="org.jboss.system"> <priority
+    value="TRACE" class="org.jboss.logging.XLevel"/> </category> <category name="org.jboss.ejb.plugins"> <priority
+    value="TRACE"/> </category>
+  -->
+
+  <!-- ======================= -->
+  <!-- Setup the Root category -->
+  <!-- ======================= -->
+
+  <root>
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+
+</log4j:configuration>

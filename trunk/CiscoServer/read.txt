@@ -1,0 +1,55 @@
+/*
+ *JTAPI事件摘要
+ *@author 罗尧  Email:j2ee.xiao@gmail.com
+ *@version V1.0 2011-3-9   上午10:06:27
+ */
+ 
+ 摘机事件
+  CallActiveEvent
+  ConnCreatedEvent
+  ConnConnectedEvent
+  CallCtlConnlnitiatedEv
+  TermConnCreateEvent
+  TermConnActiveEvent
+  CallCtlTermConnTalkingEv
+ 
+ 
+拨号事件
+  CallCtlConnDialingEv
+  
+  
+拨号成功，对方开始振铃
+  CallCtlConnEstablishedEv
+  ConnCreatedEvent
+  ConnlnprogressEvent
+  CallCtlConnOfferedEv
+  connAlertingEvent
+  CallCtlConnAlertingEv
+  TermConnCreatedEvent
+  TermConnRingingEvent
+  CallCtlTermConnRingingEv
+   
+   
+成功接听
+  ConnConnectedEvent
+  CallCtlConnEstablishedEv
+  TermConnActiveEvent
+  CallctlTermConnTalkingEv
+
+
+接听后挂机                                                                  摘机后挂机
+  TermConnDroppedEv              TermConnDroppedEv
+  CallCtlTermConnDroppedEv       CallCtlTermConnDroppedEv
+  ConnDisconnectedEvent			 ConnDisconnectedEvent
+  CallCtlConnDisconnectedEv      CallCtlConnDisconnectedEv 
+  TermConnDroppedEv  			 CallInvalidEvent
+  CallCtlTermConnDroppedEv       CallObservationEndedEv
+  ConnDisconnectedEvent
+  CallCtlConnDisconnectedEv
+  CallnvalidEvent
+  CallObservationEndedEv
+  
+  
+摘机后空闲超时
+  ConnFailedEvent
+  CallCtlConnFailedEv
