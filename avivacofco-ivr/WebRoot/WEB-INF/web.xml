@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>InServlet</servlet-name>
+    <servlet-class>com.crm.app.avivacofco.servlet.InServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GroupServlet</servlet-name>
+    <servlet-class>com.crm.app.avivacofco.servlet.GroupServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AgentsServlet</servlet-name>
+    <servlet-class>com.crm.app.avivacofco.servlet.AgentsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MessageInServlet</servlet-name>
+    <servlet-class>com.crm.app.avivacofco.servlet.MessageInServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Inservlet</servlet-name>
+    <servlet-class>com.crm.avivacofco.In.Servlet.Inservlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>InServlet</servlet-name>
+    <url-pattern>/InServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GroupServlet</servlet-name>
+    <url-pattern>/GroupServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AgentsServlet</servlet-name>
+    <url-pattern>/AgentsServlet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>MessageInServlet</servlet-name>
+    <url-pattern>/MessageInServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Inservlet</servlet-name>
+    <url-pattern>/servlet/Inservlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>

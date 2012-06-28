@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<wsdl-message>
+		<wsdlsoap-address>http://10.145.6.40:9080/CRMHT/QueryService.jws</wsdlsoap-address>
+		<username>CRMUSER</username>
+		<password>crmpsw</password>
+	</wsdl-message> 
+	<wsdl-group>
+		<wsdlsoap-address>http://192.168.1.35:8080/GIP/services/GIPService?wsdl</wsdlsoap-address>
+		<tradecode></tradecode>
+		<tradetype>04</tradetype>
+		<username>Group</username>
+		<queueId>Group</queueId>
+	</wsdl-group>		
+</config>

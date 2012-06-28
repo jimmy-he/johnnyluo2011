@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<ACLife>
+	<ACLifeBase>
+		<TransNo></TransNo>
+		<TransType>005</TransType>
+		<TransSource>003</TransSource>
+		<TransTarget>01</TransTarget>
+	</ACLifeBase>
+	
+	<ACLifeRequest>
+		<RequestDate>${RequestDate}</RequestDate>
+  		<RequestTime>${RequestTime}</RequestTime>
+	 	<PolicyInfo>
+			<IdNo>${IdNo}</IdNo>
+		</PolicyInfo>
+	</ACLifeRequest>
+</ACLife>
