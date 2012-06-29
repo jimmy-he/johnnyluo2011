@@ -18,6 +18,7 @@ import net.rubyeye.xmemcached.exception.MemcachedException;
 public class CacheClientXmemcachedImpl implements CacheClient {
 
 	protected MemcachedClient memcachedClient;
+
 	/**
 	 * @return the memcachedClient
 	 */
@@ -26,7 +27,8 @@ public class CacheClientXmemcachedImpl implements CacheClient {
 	}
 
 	/**
-	 * @param memcachedClient the memcachedClient to set
+	 * @param memcachedClient
+	 *            the memcachedClient to set
 	 */
 	public void setMemcachedClient(MemcachedClient memcachedClient) {
 		this.memcachedClient = memcachedClient;
