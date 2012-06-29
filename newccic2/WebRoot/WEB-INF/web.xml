@@ -5,12 +5,35 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	
+	<!-- 统一编码为UTF-8 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:spring/applicationContext*.xml
 		</param-value>
 	</context-param>
+	
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
 	
 	<!-- 系统初始化监听器 -->
 	<listener>
