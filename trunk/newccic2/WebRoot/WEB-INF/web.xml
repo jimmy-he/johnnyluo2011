@@ -37,7 +37,7 @@
 	
 	<!-- 系统初始化监听器 -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>com.newccic.framework.web.listener.ContextListener</listener-class>
 	</listener>
 	
 	
