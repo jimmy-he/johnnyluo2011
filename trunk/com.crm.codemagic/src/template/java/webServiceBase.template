@@ -1,0 +1,105 @@
+package {rootPackage}.webservice;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.page.{ModelName}Page;
+import {rootPackage}.service.{ModelName}Service;
+import {rootPackage}.validate.{ModelName}Validate;
+import com.crm.framework.common.CommonPage;
+import com.crm.framework.query.PageRecord;
+
+/**
+ * {tableName}webService实现基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！<br>
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}WebServiceBase {
+	@Resource
+	private {ModelName}Validate {modelName}Validate;
+	@Resource
+	private {ModelName}Service {modelName}Service;
+
+	public String insert(String sessionId, {ModelName} {modelName}) {
+		{ModelName}Page {modelName}Page = new {ModelName}Page();
+		CommonPage commonPage = new CommonPage();
+		commonPage.setSessionId(sessionId);
+		{modelName}Page.set{ModelName}({modelName});
+		try {
+			{modelName}Validate.insert(commonPage, {modelName}Page);
+			{modelName}Service.insert(commonPage, {modelName}Page);
+			return null;
+		} catch (Exception ex) {
+			return ex.getMessage();
+		}
+	}
+
+	public {ModelName} get(String sessionId, String {primKey}) {
+		{ModelName}Page {modelName}Page = new {ModelName}Page();
+		CommonPage commonPage = new CommonPage();
+		commonPage.setSessionId(sessionId);
+		try {
+			{modelName}Validate.get(commonPage, {modelName}Page);
+			{modelName}Page = {modelName}Service.get(commonPage, {modelName}Page);
+			return {modelName}Page.get{ModelName}();
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+	public String update(String sessionId, {ModelName} {modelName}) {
+		{ModelName}Page {modelName}Page = new {ModelName}Page();
+		CommonPage commonPage = new CommonPage();
+		commonPage.setSessionId(sessionId);
+		{modelName}Page.set{ModelName}({modelName});
+		try {
+			{modelName}Validate.update(commonPage, {modelName}Page);
+			{modelName}Service.update(commonPage, {modelName}Page);
+			return null;
+		} catch (Exception ex) {
+			return ex.getMessage();
+		}
+	}
+
+	public String delete(String sessionId, String {primKey}) {
+		{ModelName} {modelName} = new {ModelName}();
+		{modelName}.set{PrimKey}({primKey});
+		{ModelName}Page {modelName}Page = new {ModelName}Page();
+		CommonPage commonPage = new CommonPage();
+		commonPage.setSessionId(sessionId);
+		{modelName}Page.set{ModelName}({modelName});
+		try {
+			{modelName}Validate.delete(commonPage, {modelName}Page);
+			{modelName}Service.delete(commonPage, {modelName}Page);
+			return null;
+		} catch (Exception ex) {
+			return ex.getMessage();
+		}
+	}
+
+	public List<{ModelName}> query(String sessionId, String hqlCondition, int firstResult, int maxResults) {
+		PageRecord<{ModelName}> pageRecord = new PageRecord();
+		pageRecord.setFirstRow(firstResult);
+		pageRecord.setRowsPerPage(maxResults);
+		CommonPage commonPage = new CommonPage();
+		commonPage.setSessionId(sessionId);
+		commonPage.setPageRecord(pageRecord);
+		commonPage.setHqlCondition(hqlCondition);
+		{ModelName}Page {modelName}Page=new {ModelName}Page();
+		try {
+			{modelName}Validate.queryByCondition(commonPage, {modelName}Page);
+			{modelName}Service.queryByCondition(commonPage, {modelName}Page);
+			return commonPage.getPageRecord().getResult();
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+}

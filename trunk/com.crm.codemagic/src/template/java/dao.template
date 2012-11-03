@@ -1,0 +1,13 @@
+package {rootPackage}.dao;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * {tableName}dao
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}Dao extends {ModelName}DaoBase {
+
+}

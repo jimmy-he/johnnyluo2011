@@ -1,0 +1,117 @@
+package {rootPackage}.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import com.crm.framework.common.BaseService;
+import com.crm.framework.common.CommonPage;
+import com.crm.framework.common.Constant;
+import com.crm.framework.query.PageRecord;
+import com.crm.framework.query.Query;
+import {rootPackage}.dao.{ModelName}Dao;
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.page.{ModelName}Page;
+
+/**
+ * {tableName}service基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！★★★★★
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}ServiceBase extends BaseService {
+	@Resource
+	protected {ModelName}Dao {modelName}Dao;
+
+	/** 新增{tableName} */
+	public {ModelName}Page insert(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{modelName}Dao.insert({modelName}Page.get{ModelName}());
+		this.getSession().flush();
+		this.getSession().clear();
+		{ModelName} {modelName} = {modelName}Dao.get({modelName}Page.get{ModelName}().get{PrimKey}());
+		{modelName}Page.set{ModelName}({modelName});
+		return {modelName}Page;
+	}
+
+	/** 删除{tableName} */
+	public {ModelName}Page delete(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{modelName}Dao.delete({modelName}Page.get{ModelName}());
+		return {modelName}Page;
+	}
+
+	/** 通过id删除多个{tableName} */
+	public {ModelName}Page deleteList(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{modelName}Dao.deleteById(commonPage.getIdBox());
+		this.query(commonPage, {modelName}Page);
+		return {modelName}Page;
+	}
+
+	/** 更新{tableName}信息 */
+	public {ModelName}Page update(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{modelName}Dao.update({modelName}Page.get{ModelName}());
+		this.getSession().flush();
+		this.getSession().clear();
+		{ModelName} {modelName} = {modelName}Dao.get({modelName}Page.get{ModelName}().get{PrimKey}());
+		{modelName}Page.set{ModelName}({modelName});
+		return {modelName}Page;
+	}
+
+	/** 获得{tableName}详细信息 */
+	public {ModelName}Page get(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{ModelName} {modelName} = {modelName}Dao.get({modelName}Page.get{ModelName}().get{PrimKey}());
+		{modelName}Page.set{ModelName}({modelName});
+		return {modelName}Page;
+	}
+
+	/** 查找{tableName} */
+	public {ModelName}Page query(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		PageRecord pageRecord = commonPage.getPageRecord();
+		int pageNo = 1;
+		int rowsPerPage = Constant.ROWS_PER_PAGE;
+		//是否传入了分页信息
+		if (pageRecord != null) {
+			pageNo = commonPage.getPageRecord().getPageNo();
+			rowsPerPage = commonPage.getPageRecord().getRowsPerPage();
+		}
+		Query query = commonPage.getQuery();
+		//是否已有了查询条件
+		if (query == null) {
+			query = this.createQuery(commonPage, {modelName}Page);
+			commonPage.setQueryKey(UUID.randomUUID() + "");
+		}
+		query.setOrder(commonPage.getOrder(), commonPage.getOrderItem());
+		pageRecord = {modelName}Dao.queryPage(query, pageNo, rowsPerPage);
+		commonPage.setPageRecord(pageRecord);
+		commonPage.setQuery(query);
+		commonPage.setQueryKey(UUID.randomUUID() + "");
+		{modelName}Page.setCommonPage(commonPage);
+		return {modelName}Page;
+	}
+
+	/** 通过hql语句查找{tableName} */
+	public {ModelName}Page queryByCondition(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		int first = commonPage.getPageRecord().getFirstRow();
+		int max = commonPage.getPageRecord().getRowsPerPage();
+		List<{ModelName}> list = {modelName}Dao.queryPage(commonPage.getHqlCondition(), first, max);
+		commonPage.getPageRecord().setResult(list);
+		{modelName}Page.setCommonPage(commonPage);
+		return {modelName}Page;
+	}
+
+	/** 通过{tableName}信息创建查询条件 */
+	protected Query createQuery(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		Query query = Query.forClass({ModelName}.class);
+		{ModelName} {modelName} = {modelName}Page.get{ModelName}();
+		if ({modelName} == null) {
+			return query;
+		}
+		{queryCondition}
+		query.setFetchModes(commonPage.getFetchField(), commonPage.getFetchMode());
+		return query;
+	}
+}

@@ -1,0 +1,7 @@
+/**
+* 设置{name}
+* @param {code} 待设置的{name}值
+*/
+public void set{Code}({type} {code}) {
+	this.{code} = {code};
+}

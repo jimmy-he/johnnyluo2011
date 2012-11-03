@@ -1,0 +1,65 @@
+package {rootPackage}.validate;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import com.crm.framework.common.CommonPage;
+import com.crm.framework.test.Assert;
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.page.{ModelName}Page;
+import {rootPackage}.service.{ModelName}Service;
+
+/**
+ * {tableName}信息验证基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！★★★★★
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+abstract public class {ModelName}ValidateBase {
+
+	/** 新增{tableName} */
+	public void insert(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{ModelName} {modelName} = {modelName}Page.get{ModelName}();
+		Assert.notNull({modelName},"{modelName}");
+		validateInsert({modelName}Page);
+	}
+
+	/** 更新{tableName} */
+	public void update(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{ModelName} {modelName} = {modelName}Page.get{ModelName}();
+		Assert.notNull({modelName},"{modelName}");
+		validateInsert({modelName}Page);
+	}
+
+	/** 获得{tableName}信息 */
+	public void get(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		{ModelName} {modelName} = {modelName}Page.get{ModelName}();
+		Assert.notNull({modelName}, "{modelName}");
+		Assert.notNull({modelName}.get{PrimKey}(), "{modelName}.{primKey}");
+	}
+
+	/** 删除{tableName} */
+	public void delete(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		Assert.notNull({modelName}Page.get{ModelName}(), "{modelName}");
+		Assert.notNull({modelName}Page.get{ModelName}().get{PrimKey}(), "{primKey}");
+	}
+
+	/** 删除{tableName}列表 */
+	public void deleteList(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		Assert.notNull(commonPage.getIdBox(), "idBox");
+	}
+
+	/** 通过hql查询{tableName} */
+	public void queryByCondition(CommonPage commonPage, {ModelName}Page {modelName}Page) {
+		Assert.notNull(commonPage.getHqlCondition(), "condition");
+		Assert.notNull(commonPage.getPageRecord().getFirstRow(), "firstRow");
+		Assert.notNull(commonPage.getPageRecord().getRowsPerPage(), "maxRow");
+	}
+	
+	/**验证新增{tableName}数据的完整性*/
+	abstract void validateInsert({ModelName}Page usrePage);
+
+}

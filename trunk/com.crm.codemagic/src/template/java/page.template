@@ -1,0 +1,11 @@
+package {rootPackage}.page;
+
+/**
+ * {tableName}页面
+ * 
+ * @author {author}
+ * @since {date}
+ */
+public class {ModelName}Page extends {ModelName}PageBase{
+	 
+}

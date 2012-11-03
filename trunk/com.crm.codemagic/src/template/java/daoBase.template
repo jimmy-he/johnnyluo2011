@@ -1,0 +1,70 @@
+package {rootPackage}.dao;
+
+import java.util.List;
+import com.crm.framework.common.CUID;
+
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Component;
+
+import com.crm.framework.common.BaseDao;
+import com.crm.framework.dao.DaoUtils;
+import com.crm.framework.query.PageRecord;
+import com.crm.framework.query.Query;
+import {rootPackage}.model.{ModelName};
+
+/**
+ * {tableName}dao基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！★★★★★
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}DaoBase extends BaseDao {
+
+	/**
+	 * 新增{tableName}
+	 * 
+	 * @param {modelName} 用信息
+	 */
+	public void insert({ModelName} {modelName}) {
+		if ({modelName}.get{PrimKey}() == null) {
+			{modelName}.set{PrimKey}(CUID.createUUID("{modelName}") + "");
+		}
+		super.insert({modelName});
+	}
+	/**
+	 * 通过Id获得{tableName}信息
+	 * 
+	 * @param {modelName} {tableName}信息
+	 */
+
+	public {ModelName} get(String {primKey}) {
+		return ({ModelName}) super.get({ModelName}.class, {primKey});
+	}
+
+	/**
+	 * 通过id删除{tableName}
+	 * 
+	 * @param id {tableName}id
+	 */
+	public void deleteById(List<String> ids) {
+		super.delete({ModelName}.class, ids);
+	}
+
+	/**
+	 * 通过条件搜索{tableName}
+	 * 
+	 * @param condition 查询条件
+	 * @param firstResult 起始条数
+	 * @param maxResults 返回记录数
+	 */
+	public List<{ModelName}> queryPage(String condition, int firstResult, int maxResults) {
+		if (condition == null || condition.equals("")) {
+			condition = "1=1";
+		}
+		String hql = "from {ModelName} where " + condition;
+		return super.query(hql, firstResult, maxResults);
+	}
+
+}

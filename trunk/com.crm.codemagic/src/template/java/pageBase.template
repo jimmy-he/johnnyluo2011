@@ -1,0 +1,34 @@
+package {rootPackage}.page;
+
+import com.crm.framework.common.CommonPage;
+import {rootPackage}.model.{ModelName};
+
+/**
+ * {tableName}页面基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！<br>
+ * 
+ * @author {author}
+ * @since {date}
+ */
+public class {ModelName}PageBase {
+	/** 页面公共信息 */
+	private CommonPage commonPage;
+	private {ModelName} {modelName};
+
+	public {ModelName} get{ModelName}() {
+		return {modelName};
+	}
+
+	public void set{ModelName}({ModelName} {modelName}) {
+		this.{modelName} = {modelName};
+	}
+
+	public CommonPage getCommonPage() {
+		return commonPage;
+	}
+
+	public void setCommonPage(CommonPage commonPage) {
+		this.commonPage = commonPage;
+	}
+
+}
