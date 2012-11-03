@@ -1,0 +1,23 @@
+package {rootPackage}.webservice;
+
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.validate.{ModelName}Validate;
+import com.crm.framework.cache.Global;
+import com.crm.framework.common.CommonPage;
+import com.crm.framework.ui.UISession;
+
+/**
+*  {tableName}webService实现类
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}WebService extends {ModelName}WebServiceBase implements I{ModelName}WebService {
+
+}

@@ -1,0 +1,9 @@
+/**
+* 获取{name}
+* @return {name}的值
+*/
+@Id
+@Column(name = "{columnCode}",length={length})
+public {type} get{Code}() {
+	return {code};
+}

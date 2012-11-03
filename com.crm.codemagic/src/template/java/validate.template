@@ -1,0 +1,23 @@
+package {rootPackage}.validate;
+
+import org.springframework.stereotype.Component;
+
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.page.{ModelName}Page;
+import com.crm.framework.test.Assert;
+
+/**
+*  {tableName}信息验证
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}Validate extends {ModelName}ValidateBase {
+
+	@Override
+	void validateInsert({ModelName}Page usrePage) {
+		{ModelName} {modelName} = usrePage.get{ModelName}();
+		Assert.notNull({modelName}, "{modelName}");
+	}
+
+}

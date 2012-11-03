@@ -1,0 +1,17 @@
+package {rootPackage}.action;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * {tableName}action
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+@Scope("prototype")
+public class {ModelName}Action extends {ModelName}ActionBase {
+
+}

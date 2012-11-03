@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Code Magic"
+            id="com.crm.codemagic">
+      </category>
+      <view
+            name="Code magic"
+            icon="icons/sinosoft.gif"
+            category="com.crm.codemagic"
+            class="com.crm.codemagic.views.CodeMagicView"
+            id="com.crm.codemagic.views.CodeMagicView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.crm.codemagic.actionSet"
+            label="Sinosoft"
+            visible="true">
+         <menu
+               id="sinosoftMenu"
+               label="Sinosoft">
+            <separator
+                  name="sinosoftGroup">
+            </separator>
+         </menu>
+         <action
+               class="com.crm.codemagic.actions.CodeMagicAction"
+               icon="icons/sinosoft.gif"
+               id="com.crm.codemagic.actions.CodeMagicAction"
+               label="Code magic"
+               menubarPath="sinosoftMenu/sinosoftGroup"
+               toolbarPath="sinosoftGroup"
+               tooltip="Code magic">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>

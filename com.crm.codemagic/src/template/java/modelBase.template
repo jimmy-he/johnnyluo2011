@@ -1,0 +1,22 @@
+package {rootPackage}.model;
+
+{import}
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+
+/**
+ * {tableName}模型基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！<br>
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@MappedSuperclass
+public class {ModelName}Base implements java.io.Serializable {
+{fields}
+
+{getAndSet}
+}

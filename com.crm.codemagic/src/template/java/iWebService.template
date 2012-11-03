@@ -1,0 +1,60 @@
+package {rootPackage}.webservice;
+
+import java.util.List;
+
+import javax.jws.WebService;
+
+import {rootPackage}.model.{ModelName};
+
+/**
+ * {tableName}webService接口
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@WebService
+public interface I{ModelName}WebService {
+	/**
+	 * 新增{tableName}
+	 * 
+	 * @param sessionId 当前会话唯一标识
+	 * @param {modelName} 插入的用信息
+	 */
+	public String insert(String sessionId, {ModelName} {modelName});
+
+	/**
+	 * 删除{tableName}
+	 * 
+	 * @param sessionId 当前会话唯一标识
+	 * @param {primKey} {tableName}id
+	 */
+	public String delete(String sessionId, String {primKey});
+
+	/**
+	 * 更新{tableName}
+	 * 
+	 * @param sessionId 当前会话唯一标识
+	 * @param {modelName} {tableName}信息
+	 */
+	public String update(String sessionId, {ModelName} {modelName});
+
+	/**
+	 * 通过主键查找{tableName}
+	 * 
+	 * @param sessionId 当前会话唯一标识
+	 * @param {primKey} {tableName}id
+	 * @return 找到的{tableName}信息
+	 */
+	public {ModelName} get(String sessionId, String {primKey});
+
+	/**
+	 * 查询{tableName}
+	 * 
+	 * @param sessionId 当前会话唯一标识
+	 * @param hqlCondition hql查询语句
+	 * @param firstResult 开始条数
+	 * @param maxResults 返回条数
+	 */
+	public List<{ModelName}> query(String sessionId, String hqlCondition, int firstResult, int maxResults);
+
+}

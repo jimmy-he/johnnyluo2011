@@ -1,0 +1,107 @@
+package {rootPackage}.action;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import com.crm.framework.cache.Global;
+import com.crm.framework.common.BaseAction;
+import com.crm.framework.query.Query;
+import com.crm.framework.ui.UISession;
+import {rootPackage}.model.{ModelName};
+import {rootPackage}.page.{ModelName}Page;
+import {rootPackage}.service.{ModelName}Service;
+import {rootPackage}.validate.{ModelName}Validate;
+import com.opensymphony.xwork2.Action;
+
+/**
+ * {tableName}action基类<br>
+ * ★★★★★警告：本文件不允许手工修改！！！请使用代码生成器生成！★★★★★
+ * 
+ * @author {author}
+ * @since {date}
+ */
+@Component
+public class {ModelName}ActionBase extends BaseAction {
+	@Resource
+	protected {ModelName}Validate {modelName}Validate;
+	@Resource
+	protected {ModelName}Service {modelName}Service;
+
+	/** {tableName}页面信息 */
+	protected {ModelName}Page {modelName}Page = new {ModelName}Page();
+
+	/** 新增{tableName} */
+	public String insert() {
+		{modelName}Validate.insert(commonPage, {modelName}Page);
+		{modelName}Page = {modelName}Service.insert(commonPage, {modelName}Page);
+		return Action.SUCCESS;
+	}
+
+	/** 准备更新 */
+	public String prepareUpdate() {
+		{modelName}Validate.get(commonPage, {modelName}Page);
+		{modelName}Page = {modelName}Service.get(commonPage, {modelName}Page);
+		return Action.SUCCESS;
+	}
+
+	/** 复制{tableName} */
+	public String copy() {
+		{ModelName} {modelName} = new {ModelName}();
+		{modelName}.set{PrimKey}(commonPage.getIdBox().get(0));
+		{modelName}Page.set{ModelName}({modelName});
+		{modelName}Validate.get(commonPage, {modelName}Page);
+		{modelName}Page = {modelName}Service.get(commonPage, {modelName}Page);
+		return Action.SUCCESS;
+	}
+
+	/** 更新{tableName} */
+	public String update() {
+		{modelName}Validate.update(commonPage, {modelName}Page);
+		{modelName}Page = {modelName}Service.update(commonPage, {modelName}Page);
+		return Action.SUCCESS;
+	}
+
+	/** 删除{tableName} */
+	public String delete() {
+		UISession session = Global.getSession(commonPage.getSessionId());
+		Query query = session.getQuery(commonPage.getQueryKey());
+		commonPage.setQuery(query);
+		{modelName}Validate.deleteList(commonPage, {modelName}Page);
+		{modelName}Page = {modelName}Service.deleteList(commonPage, {modelName}Page);
+		commonPage = {modelName}Page.getCommonPage();
+		return Action.SUCCESS;
+	}
+
+	/** 查找{tableName} */
+	public String query() {
+		//去session拿到查询条件
+		UISession session = Global.getSession(commonPage.getSessionId());
+		Query query = session.getQuery(commonPage.getQueryKey());
+		commonPage.setQuery(query);
+
+		{modelName}Page = {modelName}Service.query(commonPage, {modelName}Page);
+
+		//将查询条件放回session
+		commonPage = {modelName}Page.getCommonPage();
+		session.setQuery(commonPage.getQueryKey(), commonPage.getQuery());
+
+		Global.setSession(commonPage.getSessionId(), session);
+		return Action.SUCCESS;
+	}
+
+	/** 查看{tableName}详细 */
+	public String view() {
+		{modelName}Page = {modelName}Service.get(commonPage, {modelName}Page);
+		commonPage.setIsView(true);
+		return Action.SUCCESS;
+	}
+
+	public {ModelName}Page get{ModelName}Page() {
+		return {modelName}Page;
+	}
+
+	public void set{ModelName}Page({ModelName}Page {modelName}Page) {
+		this.{modelName}Page = {modelName}Page;
+	}
+}
