@@ -1,0 +1,25 @@
+**************************Struts2.3.8包说明*************************************
+
+Struts2.3.8需要11个基本包:
+
+asm-3.3.jar						ASM是小巧轻便的 Java 字节码操控框架 ，它能方便地生成和改造 Java 代码。 Hibernate 和 Spring 在底层都用到了 ASM(CgLib 底层用的 asm)
+
+asm-commons-3.3.jar
+
+commons-fileupload-1.2.2.jar	文件上传组件，2.1.6版本后必须加入此jar包
+
+commons-io-2.4.jar
+
+commons-lang3-3.1.jar
+
+commons-logging-1.1.1.jar		日志包
+
+freemarker-2.3.19.jar			struts2的UI标签的模板使用freemarker编写
+
+javassist-3.11.0.GA.jar
+
+ognl-3.0.6.jar					对象图导航语言，通过它来读写对象属性
+
+struts2-core-2.3.8.jar			开发的核心类库
+
+xwork-core-2.3.8.jar			xwork类库，struts2在其上进行构建
