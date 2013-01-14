@@ -3,4 +3,5 @@
 
 1.JDK版本：djk1.7
 2.struts版本：Struts 2.3.8 GA
-3.Spring版本：
+3.Spring版本：Spring 3.2
+4.hibernate版本：Hibernate4.1.9
