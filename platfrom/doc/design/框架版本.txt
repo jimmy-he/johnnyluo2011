@@ -5,3 +5,7 @@
 2.struts版本：Struts 2.3.8 GA
 3.Spring版本：Spring 3.2
 4.hibernate版本：Hibernate4.1.9
+5.Webservice
+6.Memcached
+7.MySql 5
+8.Tomcat 7
