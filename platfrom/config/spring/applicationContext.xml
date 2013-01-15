@@ -14,16 +14,16 @@
             ">
 	<!-- 由于Spring3对Hibernate的支持发生改变，配置时需要注意格式、名称空间 -->
 	<!-- 导入数据库配置，数据库配置要注意名称空间与这里的一致才能使用，这应该是xml规范规定的。 -->
-	<import resource="database.xml" />
+	<!-- <import resource="database.xml" /> -->
 	
 	<!-- 配置sessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"  lazy-init = "false">
-		<property name="dataSource" ref="dataSource" />
-		<property name="mappingLocations"><!-- 加载 hbm.xml 文件-->
+		<!-- <property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">加载 hbm.xml 文件
 			<list>
 				<value>classpath:mxh/test/*.hbm.xml</value>
 			</list>
-		</property>
+		</property> -->
 		<property name="hibernateProperties"><!-- 加载 hibernateProperties 属性-->
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
@@ -46,26 +46,5 @@
 		</tx:attributes>
 	</tx:advice>
 
-	<bean id="userDao" class="mxh.test.UserDaoHibernate">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="userService" class="mxh.test.UserServiceImpl">
-		<property name="userDao" ref="userDao" />
-	</bean>
-	<bean id="indexAction" class="mxh.test.action.IndexAction">
-		<property name="userService" ref="userService" />
-	</bean>
-
-	<bean id="initSomeThing1" class="mxh.test.task.InitSomeThing" scope="singleton" init-method="init" lazy-init="false">
-	<property name="userService" ref="userService" />
-	</bean>
-
-	<!-- 定时器 -->
-	<bean id="scheduledTaskService" class="mxh.test.task.ScheduledTask">
-		<property name="userService" ref="userService" />
-	</bean>
-	<task:scheduled-tasks>
-		<task:scheduled ref="scheduledTaskService" method="getUserCount" cron="0 0/2 0-23 * * ?" />
-		<task:scheduled ref="scheduledTaskService" method="getUserCount" cron="0 0/3 0-23 * * ?" />
-	</task:scheduled-tasks>
+	
 </beans>  
