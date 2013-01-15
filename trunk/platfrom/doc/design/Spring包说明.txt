@@ -1,5 +1,37 @@
 **************************Spring 3.2包说明*************************************
 
+基础包：
+
+org.springframework.asm-3.0.5.RELEASE.jar
+org.springframework.beans-3.0.5.RELEASE.jar
+org.springframework.context-3.0.5.RELEASE.jar
+org.springframework.core-3.0.5.RELEASE.jar
+org.springframework.expression-3.0.5.RELEASE.jar
+org.springframework.web-3.0.5.RELEASE.jar
+commons-logging-1.1.1.jar
+其中commons-logging-1.1.1.jar 是spring的依赖包.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 org.springframework.aop ——Spring的面向切面编程，提供AOP（面向切面编程）的实现
 
 org.springframework.asm——spring 2.5.6的时候需要asm jar包，spring3.0开始提供它自己独立的asm jar包
