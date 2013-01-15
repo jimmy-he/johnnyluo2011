@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.codebehind.pathPrefix" value="/app/" />
+	<constant name="struts.custom.i18n.resources" value="i18n/messages" />
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<constant name="struts.configuration.classpath.defaultParentPackage" value="default" />
+	<constant name="struts.action.extension" value="action,,"></constant>
+	
+	<package name="default-with-exceptions" extends="struts-default" abstract="true">
+	    <global-results>
+			<result name="exception-error-page">/app/errors/error.jsp</result>
+			<result name="input">/app/errors/fieldError.jsp</result>
+	<!--	<result name="invalid.token">/app/errors/repeatSubmit.jsp</result> 	-->
+		</global-results>
+	    <global-exception-mappings>  
+	    	<exception-mapping result="exception-error-page" exception="java.lang.Exception"></exception-mapping>  
+	    </global-exception-mappings>
+    </package>
+	 
+	<package name="default" extends="default-with-exceptions">
+		<interceptors>
+			<!-- <interceptor name="actionlog" class="com.tinet.ccic.wm.commons.ActionLogInterceptor" />
+			
+			<interceptor-stack name="ccicStack">
+				<interceptor-ref name="exception"/>
+				
+				<interceptor-ref name="tokenSession">
+					<param name="includeMethods">save*,add*</param>
+				</interceptor-ref>
+				
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="actionlog"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload">
+                	<param name="maximumSize">10485760</param>
+                </interceptor-ref>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+			</interceptor-stack> -->
+		</interceptors>
+		
+		<default-interceptor-ref name="ccicStack" />
+
+	</package>
+	
+</struts>
