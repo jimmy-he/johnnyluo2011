@@ -1,15 +1,33 @@
 package com.test;
 
-public class LzTest {
+class Person
+{
+	private String name;
+	private int age;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		for(int x=0;x<5;x++){
-			System.out.println(x);
-		}
-		//你写错了？
+	public void setName(String n){
+		name=n;
 	}
+	public void setAge(int a){
+		age=a;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getAge(){
+		return age;
+	}
+	public String shout(){
+		return  "姓名"+this.name+"\n年龄"+this.age;
+	}
+};
 
+public class LzTest
+{
+	public static void main(String args[]){
+		Person pen=new Person();
+		pen.setName("张三");
+		pen.setAge(21);
+		System.out.println(pen.shout());
+	}
 }
