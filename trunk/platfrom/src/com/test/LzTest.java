@@ -9,7 +9,7 @@ public class LzTest {
 		for(int x=0;x<5;x++){
 			System.out.println(x);
 		}
-		//ÄãÐ´´íÁË°É£¿
+		//ä½ å†™é”™äº†ï¼Ÿ
 	}
 
 }
