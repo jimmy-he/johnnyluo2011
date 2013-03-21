@@ -56,6 +56,10 @@ public class StringAndArray {
 		//把大写的字符串转换为小姐
 		String str4="abc";
 		System.out.println(str4.toUpperCase());
+		
+		//找到大写字母A
+		String str5="fdafdsfguiouiAofdafd";
+		System.out.println(str5.matches("A"));
 	}
 
 }
