@@ -58,8 +58,9 @@ public class StringAndArray {
 		System.out.println(str4.toUpperCase());
 		
 		//找到大写字母A
+		String likeType="A";
 		String str5="fdafdsfguiouiAofdafd";
-		System.out.println(str5.matches("A"));
+		System.out.println(str5.indexOf(likeType));
 	}
 
 }
