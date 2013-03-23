@@ -12,6 +12,10 @@
  */
 package com.test.Standard;
 
+import java.util.Arrays;
+
+import sun.applet.Main;
+
 /**
  ***********************************************
  * @ClassName:StringAndArray					   		   
@@ -69,6 +73,25 @@ public class StringAndArray {
 		String str6 [] ={"123","abc"};	//打印String类型数组中的每个元素
 
 		int x[]={1,3,5,6,9,2,10};		//打印int类型数组中的每个元素
+		for(int i=0;i<str6.length;i++){
+			
+			System.out.println(str6[i]);
+		}
+		for(int i=0;i<x.length;i++ ){
+			
+			System.out.println(x [i]);
+			
+		}
+		Arrays.sort(x);
+		for(int i:x){
+			System.out.println(i);
+		}
+	     
+		//	int q[]={1,12,13,14,15,16,17,18,19};
+		//	System.out.println(q[6]);
+			String xx="gfsgfdsgfsd";
+			
+		
 	}
 
 }
