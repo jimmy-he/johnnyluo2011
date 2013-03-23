@@ -61,6 +61,14 @@ public class StringAndArray {
 		String likeType="A";
 		String str5="fdafdsfguiouiAofdafd";
 		System.out.println(str5.indexOf(likeType));
+		/************************************************************************************************/
+		
+		/**
+		 * 数组
+		 */
+		String str6 [] ={"123","abc"};	//打印String类型数组中的每个元素
+
+		int x[]={1,3,5,6,9,2,10};		//打印int类型数组中的每个元素
 	}
 
 }
