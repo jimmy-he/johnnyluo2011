@@ -41,6 +41,126 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/servlet/HelloServlet</url-pattern>		<!-- 这个url-pattern代表了servlet的访问路径 ,可以修改-->
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet00</servlet-name>
+    <servlet-class>com.test.servlet.Servlet00</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RequestInfoServlet</servlet-name>
+    <servlet-class>com.test.classes.RequestInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextTesterServlet</servlet-name>
+    <servlet-class>com.test.servlet.ContextTesterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownloadSevlet</servlet-name>
+    <servlet-class>com.test.servlet.DownloadSevlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>com.test.servlet.image.ImageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CounterServlet</servlet-name>
+    <servlet-class>com.test.servlet.image.CounterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CookieServlet</servlet-name>
+    <servlet-class>com.test.servlet.cookie.CookieServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Cookie1Servlet</servlet-name>
+    <servlet-class>com.test.servlet.cookie.Cookie1Servlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>com.test.servlet.CheckServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OutputServlet</servlet-name>
+    <servlet-class>com.test.servlet.cookie.OutputServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>com.test.servlet.MainServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GreetServlet</servlet-name>
+    <servlet-class>com.test.servlet.GreetServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>CookieServlet</servlet-name>
+    <url-pattern>/cookie</url-pattern>
+  </servlet-mapping>
+
+
+   <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/images/a</url-pattern>
+  </servlet-mapping>
+
+ <servlet-mapping>
+    <servlet-name>DownloadSevlet</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Servlet00</servlet-name>
+    <url-pattern>/servlet/Servlet00</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RequestInfoServlet</servlet-name>
+    <url-pattern>/servlet/RequestInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextTesterServlet</servlet-name>
+    <url-pattern>/servlet/ContextTesterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CounterServlet</servlet-name>
+    <url-pattern>/images/CounterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CookieServlet</servlet-name>
+    <url-pattern>/servlet/CookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Cookie1Servlet</servlet-name>
+    <url-pattern>/cookie1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/check</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OutputServlet</servlet-name>
+    <url-pattern>/output</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GreetServlet</servlet-name>
+    <url-pattern>/greet</url-pattern>
+  </servlet-mapping>
+ 
+ 
+
+
+  
 
 
 	<!-- 设置编码 -->
@@ -73,7 +193,7 @@
 	
 	
 	<welcome-file-list>
-    	<welcome-file>Lz.jsp</welcome-file>
+    	<welcome-file>Luoz.jsp</welcome-file>
   	</welcome-file-list>
 	
 </web-app>

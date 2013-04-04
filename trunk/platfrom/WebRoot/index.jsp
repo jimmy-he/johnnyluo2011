@@ -1,26 +1,40 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html; charset=GB2312" %>
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+ <head>
+  <title>index</title>
+ </head>
+ <body>
+ 
+  <table width="100%" height="100%">
+	   <tr>
+		    <td width="150" valign="top" align="left" bgcolor="#CCFFCC">
+		     <jsp:include page="sidebar.html"/>
+		    </td>
+		    
+		    <td height="100%" width="*">
+			     <table width="100%" height="100%">
+			     
+			      <tr>
+			       <td valign="top" height="15%">
+			        <jsp:include page="header.html"/>
+			       </td>
+			      </tr>
+			      
+			      <tr>
+			       <td valign="top">
+			        <jsp:include page="indexContent.jsp"/>
+			       </td>
+			      </tr>
+			      
+			      <tr>
+			       <td valign="bottom" height="15%">
+			         <jsp:include page="footer.html"/>
+			       </td>
+			      </tr>
+			      
+			     </table>
+		    </td>
+	   </tr>
+  </table>
+ </body>
 </html>
