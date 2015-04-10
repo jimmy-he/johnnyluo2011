@@ -1,0 +1,1 @@
+java、asterisk、memcache、jbpm、SSH、codemagic、hadoop、CRM
